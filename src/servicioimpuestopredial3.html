@@ -1,0 +1,106 @@
+<div ng-show="vm.tres">
+    <div ng-show="vm.tresformato">
+        <!-- FORMULARIO TRES PARA EL FORMATO -->
+        <div class="container-fluid">
+            <div id="formatoPagoMultiple" class="portal-pdfobject"></div>
+            <div class="mt-2 mb-3">
+                <div class="float-right">
+                    <button type="button" class="btn btn-success btnpagarcancelar mt-2" data-toggle="modal" data-target="#correoModal">Enviar por correo
+                    </button>
+                    <button id="btnnuevaconsultaformato" type="button" class="btn btn-success btnpagarcancelar mt-2" ng-click="vm.nuevaCuenta()">Nueva Consulta
+                    </button>
+                </div>
+            </div>
+            <div class="container" style="clear: both;">
+                <div class="mensajeformulario letranegra mt-3 pt-3 text-justify">Tambi&eacute;n puede realizar su pago v&iacute;a internet a trav&eacute;s de los siguientes portales Bancarios (Para cuentahabientes de dichos bancos).</div>
+                <div style="text-align: center;">
+                    <img src="img/BANCOSgris.png" style="width: 85%;">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="correoModal" tabindex="-1" role="dialog" aria-labelledby="correoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title titulomodal" id="correoModalLabel">
+                            <div>Enviar formato de pago por correo electr&oacute;nico</div>
+                            <hr class="hrmodal">
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body contenidomodal">
+                        <form novalidate>
+                            <div class="form-group">
+                                <div>
+                                    <label for="correoformato">Ingrese correo electr&oacute;nico</label>
+                                    <input type="email" ng-model="vm.correoformato" id="correoformato" name="correoformato" placeholder="correo@dominio.com" class="form-control mb-2" minlength="5" maxlength="120" ng-blur="vm.correoFormatoValido()">
+                                </div>
+                                <div class="alert alert-danger alert-dismissible fade show p-1" role="alert" ng-show="vm.correoformatovalido">
+                                    <div>La direcci&oacute;n de correo no cumple con la nomenclatura valida usuario@dominio.com, favor de verificar e intentar nuevamente.
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer centrar">
+                        <div class="v-center">
+                            <button type="button" class="btn btn-success btnenviarcancelar" data-dismiss="modal" ng-click="vm.enviarFormatoXCorreo()">Enviar</button>
+                            <button type="button" class="btn btn-success ml-3 btnenviarcancelar" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="correoMsjModal" tabindex="-1" role="dialog" aria-labelledby="correoMsjModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title titulomodal" id="correoMsjModalLabel">
+                            <div>Mensaje informativo</div>
+                            <hr class="hrmodal">
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body text-center contenidomodal">
+                        Formato de pago enviado exitosamente por correo electr&oacute;nico.
+                    </div>
+                    <div class="modal-footer centrar">
+                        <div class="v-center">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-show="vm.treslinea" ng-include=" 'serviciopagoenlinea.html'">
+    </div>
+</div>
+
+
+<script>
+    $("#btnnuevaconsultaformato").click(function() {
+        if ($("#tres").hasClass("numberCircleActive")) {
+            //desactivar tres
+            $("#tres").removeClass("numberCircleActive");
+            $("#tres").toggleClass("numberCircleInactive");
+            $("#trestext").removeClass("textCircleActive");
+            $("#trestext").toggleClass("textCircleInactive");
+            //activar uno
+            $("#uno").removeClass("numberCircleInactive");
+            $("#uno").toggleClass("numberCircleActive");
+            $("#unotext").removeClass("textCircleInactive");
+            $("#unotext").toggleClass("textCircleActive");
+        }
+    });
+</script>

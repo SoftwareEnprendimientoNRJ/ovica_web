@@ -1,0 +1,257 @@
+<div class="slider">
+    <ul>
+        <li>
+            <img src="img/home/impuesto.png" alt="Impuesto predial">
+        </li>
+        <li>
+            <img src="img/home/pagos.png" alt="Pago realizado">
+        </li>
+        <li>
+            <img src="img/home/cartografia.png" alt="Cartografia">
+        </li>
+        <li>
+            <img src="img/home/tramites.png" alt="Informacion de tramites">
+        </li>
+    </ul>
+    <ol id="indicators" class="indicators">
+        <li role-slide="1"><span class="fa fa-circle"></span></li>
+        <li role-slide="2"><span class="fa fa-circle"></span></li>
+        <li role-slide="3"><span class="fa fa-circle"></span></li>
+        <li role-slide="4"><span class="fa fa-circle"></span></li>
+    </ol>
+    <div id="arrowleft" class="arrowleft"><span><img class="flechas" src="img/home/flechaatras.png"></span></div>
+    <div id="arrowright" class="arrowright"><span><img class="flechas" src="img/home/flechaadelante.png"></span></div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 col-xl-9">
+            <p class="textotitulo">
+                Bienvenido a OVICA
+            </p>
+            <p class="textocontenido">
+                El espacio electr&oacute;nico relacionado con informaci&oacute;n catastral de los inmuebles ubicados en la Ciudad de M&eacute;xico en donde podr&aacute; acceder de forma segura a los principales servicios catastrales sin necesidad de acudir de forma física
+                a nuestras instalaciones.
+            </p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+            <div style="text-align: center;" class="mt-3">
+                <p style="letter-spacing: 1pt; line-height: 10%; color: #8a8c8c;">
+                    Descarga
+                </p>
+                <p style="letter-spacing: 1pt; line-height: 10%; color: #8a8c8c;">
+                    nuestra App
+                </p>
+                <img src="img/home/APPSTORE.png" width="50%" class="mt-1 mb-3">
+                <img src="img/home/PLAYSTORE.png" width="50%">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid division mt-5">
+    <p>CONTRIBUYENTES</p>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row ml-2 mt-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="mitooltip">
+                <a ng-href="#!servicios" ng-click="vm.moverScroll()">
+                    <img class="imgseccionhome" id="imgpagar" src="img/home/PAGARICONOFF.png">
+                </a>
+                <span class="tooltiptext tooltipprincipal">Realizar pago</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="mitooltip">
+                <a ng-href="#!servicios" ng-click="vm.moverScroll()">
+                    <img class="imgseccionhome" id="imgconsultar" src="img/home/CONSULTARICONOFF.png">
+                </a>
+                <span class="tooltiptext tooltipprincipal">Consultar servicios</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="mitooltip" style="align-content: flex-end;">
+                <a ng-href="#!tramites" ng-click="vm.moverScroll()">
+                    <img class="imgseccionhome" id="imgtramite" src="img/home/TRAMITESICONOFF.png">
+                </a>
+                <span class="tooltiptext tooltipprincipal">Consultar tr&aacute;mites</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid division mt-5">
+    <p>NOTARIOS Y PERITOS</p>
+</div>
+
+<div class="container-fluid">
+    <div class="row ml-2 mt-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="mitooltip">
+                <a href="http://sigapred.finanzas.cdmx.gob.mx:8080/FuentesExternas/Isai/Home.aspx">
+                    <img class="imgseccionhome" id="imgisai" src="img/home/ISAIICONOFF.png">
+                </a>
+                <span class="tooltiptext tooltipprincipal">Oprima para ver el enlace</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mt-1">
+            <div class="mitooltip">
+                <a href="http://sigapred.finanzas.df.gob.mx:8080/FuentesExternas/Avaluos/Home.aspx">
+                    <img class="imgseccionhome" id="imgavaluos" src="img/home/AVALUOSICONOFF.png">
+                </a>
+                <span class="tooltiptext tooltipprincipal">Oprima para ver el enlace</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mt-1">
+            <div class="mitooltip">
+                <a href="">
+                    <img class="imgseccionhome" id="imgcondominios" src="img/home/CONDOMINIOSICONOFF.png">
+                </a>
+                <span class="tooltiptext tooltipprincipal">Oprima para ver el enlace</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var numeroSlide = 1;
+    var formatearLoop = false;
+
+    $('#indicators li').click(function() {
+        var rolSlide = $(this).attr("role-slide");
+        $(".slider ul li").css({
+            "display": "none"
+        });
+        $(".slider ul li:nth-child(" + rolSlide + ")").fadeIn();
+        $(".indicators li").css({
+            "opacity": "0.5"
+        });
+        $(this).css({
+            "opacity": "1"
+        });
+
+        formatearLoop = true
+        numeroSlide = rolSlide
+    })
+
+    $('#arrowright').click(function() {
+        avanzar();
+        formatearLoop = true
+    })
+
+    $('#arrowleft').click(function() {
+        if (numeroSlide <= 1) {
+            numeroSlide = 4
+        } else {
+            numeroSlide--;
+        }
+
+        $(".slider ul li").css({
+            "display": "none"
+        });
+
+        $(".slider ul li:nth-child(" + numeroSlide + ")").fadeIn();
+
+        $(".indicators li").css({
+            "opacity": "0.5"
+        });
+
+        $(".indicators li:nth-child(" + numeroSlide + ")").css({
+            "opacity": "1"
+        });
+
+        formatearLoop = true
+    })
+
+    setInterval(function() {
+        if (formatearLoop) {
+            formatearLoop = false
+        } else {
+            avanzar();
+        }
+    }, 4000)
+
+    function avanzar() {
+        if (numeroSlide >= 4) {
+            numeroSlide = 1
+        } else {
+            numeroSlide++;
+        }
+
+        $(".slider ul li").css({
+            "display": "none"
+        });
+
+        $(".slider ul li:nth-child(" + numeroSlide + ")").fadeIn();
+
+        $(".indicators li").css({
+            "opacity": "0.5"
+        });
+
+        $(".indicators li:nth-child(" + numeroSlide + ")").css({
+            "opacity": "1"
+        });
+    }
+
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/home/PAGARICON.png');
+        },
+        mouseleave: function() {
+            $(this).attr('src', 'img/home/PAGARICONOFF.png');
+        }
+    }, '#imgpagar');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/home/CONSULTARICONON.png');
+        },
+        mouseleave: function() {
+            $(this).attr('src', 'img/home/CONSULTARICONOFF.png');
+        }
+    }, '#imgconsultar');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/home/TRAMITESICONON.png');
+        },
+        mouseleave: function() {
+            $(this).attr('src', 'img/home/TRAMITESICONOFF.png');
+        }
+    }, '#imgtramite');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/home/ISAIICONON.png');
+        },
+        mouseleave: function() {
+            $(this).attr('src', 'img/home/ISAIICONOFF.png');
+        }
+    }, '#imgisai');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/home/AVALUOSICONON.png');
+        },
+        mouseleave: function() {
+            $(this).attr('src', 'img/home/AVALUOSICONOFF.png');
+        }
+    }, '#imgavaluos');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/home/CONDOMINIOSICONON.png');
+        },
+        mouseleave: function() {
+            $(this).attr('src', 'img/home/CONDOMINIOSICONOFF.png');
+        }
+    }, '#imgcondominios');
+</script>

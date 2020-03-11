@@ -1,0 +1,242 @@
+<div class="container-fluid tituloseccion">
+    <h1 class="margenderecha">
+        SERVICIOS
+    </h1>
+</div>
+
+<div class="container-fluid divservicio">
+    <div class="row">
+        <!-- IZQUIERDA -->
+        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-2 col-xl-2 caja cajamenu">
+            <div>
+                <img class="imgmenu" id="imgimpuesto" ng-click="vm.mostrarContenido('0');" src="./img/servicios/IMPUESTOPREDIALON.png">
+                <img class="imgmenu" id="imgcalculo" ng-click="vm.mostrarContenido('3');" src="./img/servicios/CONOZCASUIMPUESTOOFF.png">
+                <img class="imgmenu" id="imgconsultapago" ng-click="vm.mostrarContenido('2');" src="./img/servicios/CONSULTADEPAGOSREALIZADOSOFF.png">
+                <img class="imgmenu" id="imgcartografia" ng-click="vm.mostrarContenido('1');" src="./img/servicios/CONSULTADECARTOGRAFIAOFF.png">
+                <img class="imgmenu" id="imgcopia" ng-click="vm.mostrarContenido('4');" src="./img/servicios/EXPEDICIONDECOPIASDEDOCSOFF.png">
+                <img class="imgmenu" id="imgplano" ng-click="vm.mostrarContenido('5');" src="./img/servicios/EXPEDICIONDEPLANOSOFF.png">
+            </div>
+        </div>
+        <!-- DERECHA -->
+        <div id="contenidoservicio" class="col-xs-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 caja cajatexto">
+            <div ng-show="vm.pago">
+                <div ng-include="'servicioimpuestopredial.html'"></div>
+            </div>
+            <div ng-show="vm.mapa">
+                <div ng-include="'serviciocartografia.html'"></div>
+            </div>
+            <div ng-show="vm.pagorealizado">
+                <div ng-include="'serviciopagorealizado.html'"></div>
+            </div>
+            <div ng-show="vm.conozcaimpuesto">
+                <div ng-include="'servicioconzcasuimpuesto.html'"></div>
+            </div>
+            <div ng-show="vm.copias">
+                <div ng-include="'servicioexpediciondecopias.html'"></div>
+            </div>
+            <div ng-show="vm.plano">
+                <div ng-include="'servicioexpediciondeplano.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.sr = new ScrollReveal();
+
+    sr.reveal('.tituloseccion', {
+        duration: 3000,
+        origin: 'left',
+        distance: '600px',
+    });
+
+    $(document).ready(function() {
+        $("#imgimpuesto").removeClass("clicked");
+        $("#imgimpuesto").toggleClass("clicked");
+    });
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/servicios/IMPUESTOPREDIALON.png');
+        },
+        mouseleave: function() {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/servicios/IMPUESTOPREDIALOFF.png');
+            }
+        },
+        click: function() {
+            $(this).attr('src', 'img/servicios/IMPUESTOPREDIALON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(0)
+        }
+    }, '#imgimpuesto');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/servicios/CONSULTADECARTOGRAFIA.png');
+        },
+        mouseleave: function() {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/servicios/CONSULTADECARTOGRAFIAOFF.png');
+            }
+        },
+        click: function() {
+            $(this).attr('src', 'img/servicios/CONSULTADECARTOGRAFIA.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(1)
+        }
+    }, '#imgcartografia');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/servicios/CONSULTADEPAGOSREALIZADOSON.png');
+        },
+        mouseleave: function() {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/servicios/CONSULTADEPAGOSREALIZADOSOFF.png');
+            }
+        },
+        click: function() {
+            $(this).attr('src', 'img/servicios/CONSULTADEPAGOSREALIZADOSON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(2)
+        }
+    }, '#imgconsultapago');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/servicios/CONOZCASUIMPUESTOON.png');
+        },
+        mouseleave: function() {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/servicios/CONOZCASUIMPUESTOOFF.png');
+            }
+        },
+        click: function() {
+            $(this).attr('src', 'img/servicios/CONOZCASUIMPUESTOON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(3)
+        }
+    }, '#imgcalculo');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/servicios/EXPEDICIONDEPLANOSON.png');
+        },
+        mouseleave: function() {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/servicios/EXPEDICIONDEPLANOSOFF.png');
+            }
+        },
+        click: function() {
+            $(this).attr('src', 'img/servicios/EXPEDICIONDEPLANOSON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(4)
+        }
+    }, '#imgplano');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).attr('src', 'img/servicios/EXPEDICIONDECOPIASDEDOCSON.png');
+        },
+        mouseleave: function() {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/servicios/EXPEDICIONDECOPIASDEDOCSOFF.png');
+            }
+        },
+        click: function() {
+            $(this).attr('src', 'img/servicios/EXPEDICIONDECOPIASDEDOCSON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(5)
+        }
+    }, '#imgcopia');
+
+    function botonNoClick(boton) {
+        switch (boton) {
+            //impuesto predial
+            case 0:
+                $("#imgcartografia").removeClass("clicked");
+                $("#imgconsultapago").removeClass("clicked");
+                $("#imgcalculo").removeClass("clicked");
+                $("#imgplano").removeClass("clicked");
+                $("#imgcopia").removeClass("clicked");
+                $("#imgcartografia").attr('src', 'img/servicios/CONSULTADECARTOGRAFIAOFF.png');
+                $("#imgconsultapago").attr('src', 'img/servicios/CONSULTADEPAGOSREALIZADOSOFF.png');
+                $("#imgcalculo").attr('src', 'img/servicios/CONOZCASUIMPUESTOOFF.png');
+                $("#imgplano").attr('src', 'img/servicios/EXPEDICIONDEPLANOSOFF.png');
+                $("#imgcopia").attr('src', 'img/servicios/EXPEDICIONDECOPIASDEDOCSOFF.png');
+                break;
+                //cartografia
+            case 1:
+                $("#imgimpuesto").removeClass("clicked");
+                $("#imgconsultapago").removeClass("clicked");
+                $("#imgcalculo").removeClass("clicked");
+                $("#imgplano").removeClass("clicked");
+                $("#imgcopia").removeClass("clicked");
+                $("#imgimpuesto").attr('src', 'img/servicios/IMPUESTOPREDIALOFF.png');
+                $("#imgconsultapago").attr('src', 'img/servicios/CONSULTADEPAGOSREALIZADOSOFF.png');
+                $("#imgcalculo").attr('src', 'img/servicios/CONOZCASUIMPUESTOOFF.png');
+                $("#imgplano").attr('src', 'img/servicios/EXPEDICIONDEPLANOSOFF.png');
+                $("#imgcopia").attr('src', 'img/servicios/EXPEDICIONDECOPIASDEDOCSOFF.png');
+                break;
+                //pagos realizados
+            case 2:
+                $("#imgimpuesto").removeClass("clicked");
+                $("#imgcartografia").removeClass("clicked");
+                $("#imgcalculo").removeClass("clicked");
+                $("#imgplano").removeClass("clicked");
+                $("#imgcopia").removeClass("clicked");
+                $("#imgimpuesto").attr('src', 'img/servicios/IMPUESTOPREDIALOFF.png');
+                $("#imgcartografia").attr('src', 'img/servicios/CONSULTADECARTOGRAFIAOFF.png');
+                $("#imgcalculo").attr('src', 'img/servicios/CONOZCASUIMPUESTOOFF.png');
+                $("#imgplano").attr('src', 'img/servicios/EXPEDICIONDEPLANOSOFF.png');
+                $("#imgcopia").attr('src', 'img/servicios/EXPEDICIONDECOPIASDEDOCSOFF.png');
+                break;
+                //conozca su impuesto
+            case 3:
+                $("#imgimpuesto").removeClass("clicked");
+                $("#imgcartografia").removeClass("clicked");
+                $("#imgconsultapago").removeClass("clicked");
+                $("#imgplano").removeClass("clicked");
+                $("#imgcopia").removeClass("clicked");
+                $("#imgimpuesto").attr('src', 'img/servicios/IMPUESTOPREDIALOFF.png');
+                $("#imgcartografia").attr('src', 'img/servicios/CONSULTADECARTOGRAFIAOFF.png');
+                $("#imgconsultapago").attr('src', 'img/servicios/CONSULTADEPAGOSREALIZADOSOFF.png');
+                $("#imgplano").attr('src', 'img/servicios/EXPEDICIONDEPLANOSOFF.png');
+                $("#imgcopia").attr('src', 'img/servicios/EXPEDICIONDECOPIASDEDOCSOFF.png');
+                break;
+                //expedicion de plano
+            case 4:
+                $("#imgimpuesto").removeClass("clicked");
+                $("#imgcartografia").removeClass("clicked");
+                $("#imgconsultapago").removeClass("clicked");
+                $("#imgcalculo").removeClass("clicked");
+                $("#imgcopia").removeClass("clicked");
+                $("#imgimpuesto").attr('src', 'img/servicios/IMPUESTOPREDIALOFF.png');
+                $("#imgcartografia").attr('src', 'img/servicios/CONSULTADECARTOGRAFIAOFF.png');
+                $("#imgconsultapago").attr('src', 'img/servicios/CONSULTADEPAGOSREALIZADOSOFF.png');
+                $("#imgcalculo").attr('src', 'img/servicios/CONOZCASUIMPUESTOOFF.png');
+                $("#imgcopia").attr('src', 'img/servicios/EXPEDICIONDECOPIASDEDOCSOFF.png');
+                break;
+                //expedicion de copias
+            case 5:
+                $("#imgimpuesto").removeClass("clicked");
+                $("#imgcartografia").removeClass("clicked");
+                $("#imgconsultapago").removeClass("clicked");
+                $("#imgcalculo").removeClass("clicked");
+                $("#imgplano").removeClass("clicked");
+                $("#imgimpuesto").attr('src', 'img/servicios/IMPUESTOPREDIALOFF.png');
+                $("#imgcartografia").attr('src', 'img/servicios/CONSULTADECARTOGRAFIAOFF.png');
+                $("#imgconsultapago").attr('src', 'img/servicios/CONSULTADEPAGOSREALIZADOSOFF.png');
+                $("#imgcalculo").attr('src', 'img/servicios/CONOZCASUIMPUESTOOFF.png');
+                $("#imgplano").attr('src', 'img/servicios/EXPEDICIONDEPLANOSOFF.png');
+                break;
+        }
+    }
+</script>

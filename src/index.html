@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+
+<head>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OVICA</title>
+    <!--PARA EL ICONO DE LA PAGINA-->
+    <link rel="shortcut icon" type="image/icon" href="img/favicon.ico">
+    <link rel='stylesheet' type='text/css' href='css/bootstrap.css'>
+    <!--ICONOS FONT AWESOME-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='css/main.css'>
+    <!--google maps-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8UHd4vjcU7Giu25drJ7k6GHLyyxQGaak&libraries=drawing">
+    </script>
+    <!--end google maps-->
+    <script src="js/utility/expresiones.js" charset="utf-8"></script>
+    <script src='js/pdfmake.min.js'></script>
+    <script src='js/vfs_fonts.js'></script>
+    <script src="js/pdfobject.min.js" charset="utf-8"></script>
+    <script src="js/jquery.min.js" charset="utf-8"></script>
+    <script src="js/popper.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="js/scrollreveal.js" charset="utf-8"></script>
+    <script src="js/angular.min.js" charset="utf-8"></script>
+    <script src="js/angular-route.js" charset="utf-8"></script>
+    <script src="js/module/module.js" charset="utf-8"></script>
+    <script src="js/directive/validation.js" charset="utf-8"></script>
+    <script src="js/module/config.js" charset="utf-8"></script>
+    <script src="js/factory/factory.js" charset="utf-8"></script>
+    <script src="js/factory/factoryCDMX.js" charset="utf-8"></script>
+    <script src="js/factory/FormatoPago.js" charset="utf-8"></script>
+    <script src="js/controller/principalCtrl.js" charset="utf-8"></script>
+    <script src="js/controller/servicio.js" charset="utf-8"></script>
+    <script src="js/controller/tramites.js" charset="utf-8"></script>
+    <script src="js/controller/contacto.js" charset="utf-8"></script>
+</head>
+
+<body ng-controller="principalCtrl as vm">
+
+    <div class="progress" id="progressInicio" style="margin:0px; height: 7pt;">
+        <div id="barCargaPagina" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+            <span class="sr-only">0%</span>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">
+            <img src="img/encabezado.jpg" class="width1">
+            <img src="img/encabezadomovil.jpg" class="width2">
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light pl-3 pr-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" style="margin-right: 20em;" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="btn btnverde" ng-href="#!home">OVICA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btnverde" ng-href="#!servicios">SERVICIOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btnverde" ng-href="#!tramites">TR&Aacute;MITES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btnverde" ng-href="#!contacto">CONTACTO</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-header fecha">
+                Ciudad de M&eacute;xico {{vm.CurrentDate}}
+            </div>
+
+        </div>
+    </nav>
+
+    <div id="contenido" ng-view></div>
+
+    <div ng-include="'alertas.html'"></div>
+
+    <!--Barra gris-->
+    <div style="width: 100%; height: 88px; background: #898d8d;" class="mt-5">
+    </div>
+
+    <footer class="pb-2" style="background:black; color: #f4f5f5;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class="mt-5 direccion">
+                        <div>
+                            <p class="sinmargen titulopie">SECRETAR&Iacute;A DE</p>
+                            <p class="sinmargen titulopie">ADMINISTRACI&Oacute;N Y FINANZAS</p>
+                        </div>
+                        <div>
+                            <br>
+                            <p class="titulopie">Atenci&oacute;n ciudadana</p>
+                        </div>
+                        <div>
+                            <p class="sinmargen textopie"><span style="font-weight: bold;">Direcci&oacute;n: </span><span>Calle
+                                    Plaza de la Constituci&oacute;n 1</span>
+                            </p>
+                            <p class="sinmargen textopie">Colonia Centro, Delegaci&oacute;n Cuauht&eacute;moc</p>
+                            <p class="sinmargen textopie">C.P. 06000, Ciudad de M&eacute;xico</p>
+                        </div>
+                        <div>
+                            <br>
+                            <p class="sinmargen textopie"><span style="font-weight: bold;">Direcci&oacute;n: </span><span>Calle
+                                    Doctor Lavista 144</span></p>
+                            <p class="sinmargen textopie">Colonia Doctores, Delegaci&oacute;n Cuauht&eacute;moc</p>
+                            <p class="sinmargen textopie">C.P. 06720, Ciudad de M&eacute;xico</p>
+                            <p class="sinmargen textopie" style="font-weight: bold;">Tel&eacute;fono:</p>
+                            <p class="sinmargen textopie">55 88 33 88</p>
+                        </div>
+                        <div>
+                            <br>
+                            <p class="sinmargen titulopie">Redes sociales</p>
+                            <ul class="redessociales">
+                                <li>
+                                    <a href="https://www.facebook.com/AdministracionyFinanzasCiudadDeMexico/" target="_blank"><i class="fab fa-facebook-square botonredes"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/Finanzas_CDMX" target="_blank">
+                                        <i class="fab fa-twitter-square botonredes"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/channel/UCvLAefd2Zj6tKK0Y6sYHciQ/" target="_blank"><i class="fab fa-youtube-square botonredes"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class="mt-5 navegacion">
+                        <p class="titulopie">NAVEGACI&Oacute;N</p>
+                        <a class="claselink" ng-href="#!home" ng-click="vm.moverScroll()">
+                            <p class="letragris">OVICA</p>
+                        </a>
+                        <a class="claselink" ng-href="#!servicios" ng-click="vm.moverScroll()">
+                            <p class="letragris">SERVICIOS</p>
+                        </a>
+                        <a class="claselink" ng-href="#!tramites" ng-click="vm.moverScroll()">
+                            <p class="letragris">TR&Aacute;MITES</p>
+                        </a>
+                        <a class="claselink" ng-href="#!contacto" ng-click="vm.moverScroll()">
+                            <p class="letragris">CONTACTO</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class="mt-5 sitiorelacionado navegacion">
+                        <p class="titulopie">Sitios relacionados</p>
+
+                        <a style="color: #fff;" href="https://www.cdmx.gob.mx/" target="_blank">
+                            <p class="sinmargen textopie">Portal de la Ciudad</p>
+                        </a>
+                        <a style="color: #fff;" href="https://tudinero.cdmx.gob.mx/" target="_blank">
+                            <p class="sinmargen textopie">Tu Ciudad, Tu dinero</p>
+                        </a>
+                        <a style="color: #fff;" href="http://www.finanzas.cdmx.gob.mx/servicios-al-contribuyente/constancia-de-credito-simple" target="_blank">
+                            <p class="sinmargen textopie">Contrataci&oacute;n de Cr&eacute;dito Simple 2016</p>
+                        </a>
+                        <a style="color: #fff;" href="http://www.finanzas.cdmx.gob.mx/credito-simple-2017" target="_blank">
+                            <p class="sinmargen textopie">Contrataci&oacute;n de Cr&eacute;dito Simple 2017</p>
+                        </a>
+                        <a style="color: #fff;" href="http://www.finanzas.cdmx.gob.mx/storage/app/uploads/public/585/c35/b5e/585c35b5e8c44585173852.pdf" target="_blank">
+                            <p class="sinmargen textopie">Contrato de Cr&eacute;dito HSBC 2016</p>
+                        </a>
+                        <a style="color: #fff;" href="https://data.finanzas.cdmx.gob.mx/programas_anuales_evaluacion.html" target="_blank">
+                            <p class="sinmargen textopie">Programas Anuales de Evaluaci&oacute;n</p>
+                        </a>
+                        <a style="color: #fff;" href="http://data.finanzas.cdmx.gob.mx/proveedores.html" target="_blank">
+                            <p class="sinmargen textopie">Procedimiento para la solicitud</p>
+                        </a>
+                        <a style="color: #fff;" href="https://www.congresocdmx.gob.mx/" target="_blank">
+                            <p class="sinmargen textopie">Congreso de la Ciudad de M&eacute;xico</p>
+                        </a>
+                        <a style="color: #fff;" href="http://www.infodf.org.mx/" target="_blank">
+                            <p class="sinmargen textopie">infoDF</p>
+                        </a>
+                        <a style="color: #fff;" href="http://www.data.consejeria.cdmx.gob.mx/index.php/gaceta" target="_blank">
+                            <p class="sinmargen textopie">Gaceta Oficial de la Ciudad de M&eacute;xico</p>
+                        </a>
+                        <a style="color: #fff;" href="https://www.fidere.cdmx.gob.mx/" target="_blank">
+                            <p class="sinmargen textopie">FIDERE</p>
+                        </a>
+                        <a style="color: #fff;" href="https://www.sacmex.cdmx.gob.mx/" target="_blank">
+                            <p class="sinmargen textopie">SACMEX</p>
+                        </a>
+                        <a style="color: #fff;" href="https://www.semovi.cdmx.gob.mx/" target="_blank">
+                            <p class="sinmargen textopie">SEMOVI </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 2em; font-size: 12pt; text-align: center; font-family: GothamBook;">
+                2019 OVICA. Oficina Virtual del Catastro
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        window.sr = new ScrollReveal();
+
+        sr.reveal('.navbar', {
+            duration: 2000,
+            origin: 'bottom'
+        });
+
+        sr.reveal('.header-content-top', {
+            duration: 2000,
+            origin: 'top',
+            distance: '300px'
+        });
+
+        sr.reveal('.header-content-left', {
+            duration: 2000,
+            origin: 'top',
+            distance: '300px'
+        });
+
+        sr.reveal('.header-content-right', {
+            duration: 2000,
+            origin: 'right',
+            distance: '300px'
+        });
+
+        sr.reveal('.header-btn', {
+            duration: 2000,
+            origin: 'bottom',
+            delay: 1000
+        });
+
+        sr.reveal('.formulario-animado', {
+            duration: 2000,
+            origin: 'left',
+            distance: '300px',
+            viewFactor: 0.2
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

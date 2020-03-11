@@ -1,0 +1,169 @@
+<div class="container">
+    <fieldset class="myfieldset mt-3">
+        <legend class="legenttabla mylegend">Conceptos contables</legend>
+        <div class="container row mensajeformulario">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label>Concepto:</label>
+                <div class="letranegra">
+                    {{vm.conceptodepagotres}}
+                </div>
+                <label>Importe total a pagar:</label>
+                <div class="letranegra">
+                    ${{vm.importetotalapagartres}}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label>L&iacute;nea de captura:</label>
+                <div class="letranegra">
+                    {{vm.lineadecapturatres}}
+                </div>
+                <label>Modalidad de pago:</label>
+                <div class="letranegra">
+                    {{vm.modalidaddepagotres}}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label>Fecha vencimiento:</label>
+                <div class="letranegra">
+                    {{vm.fechavencimientotres}}
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="myfieldset mt-3">
+        <legend class="legenttabla mylegend">Datos personales</legend>
+        <div class="container row mensajeformulario">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label>Nombre o Raz&oacute;n Social:</label>
+                <div class="letranegra">
+                    {{vm.nombrerazontres}}
+                </div>
+                <label>Calle y n&uacute;mero:</label>
+                <div class="letranegra">
+                    {{vm.callenumerotres}}
+                </div>
+                <label>C&oacute;digo Postal:</label>
+                <div class="letranegra">
+                    {{vm.codigopostaltres}}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label>Apellido paterno:</label>
+                <div class="letranegra">
+                    {{vm.apellidopaternotres}}
+                </div>
+                <label>Alcald&iacute;a:</label>
+                <div class="letranegra">
+                    {{vm.alcaldiatres}}
+                </div>
+                <label>Tel&eacute;fono:</label>
+                <div class="letranegra">
+                    {{vm.telefonotres}}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label>Apellido materno:</label>
+                <div class="letranegra">
+                    {{vm.apellidomaternotres}}
+                </div>
+                <label>Colonia:</label>
+                <div class="letranegra">
+                    {{vm.coloniatres}}
+                </div>
+                <label>Correo electr&oacute;nico:</label>
+                <div class="letranegra">
+                    {{vm.correoelectronicotres}}
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="tituloaviso mt-3">Aviso importante</div>
+    <div class="textoaviso text-justify">
+        Al dar click en la opci&oacute;n "Pagar" entrar&aacute; en un sitio seguro operado por Multipagos Bancomer,
+        el cual cuenta con los est&aacute;ndares de seguridad inform&aacute;tica necesarios para la protecci&oacute;n de
+        la informaci&oacute;n de este tipo de transacciones v&iacute;a Web.
+        <strong>Aseg&uacute;rese de tener habilitadas las ventanas emergentes</strong>, ya que este sitio seguro se
+        desplegar&aacute; en una ventana nueva del explorador.
+    </div>
+
+    <div class="container-fluid">
+        <div class="float-right">
+            <form name="pagosOnline" action="https://www.adquiramexico.com.mx/clb/endpoint/gdf/" method="post">
+                <input id="s_transm" type="hidden" name="s_transm" />
+                <input id="c_referencia" type="hidden" name="c_referencia" />
+                <input id="val_1" type="hidden" name="val_1" />
+                <input id="t_importe" type="hidden" name="t_importe" />
+                <input id="val_2" type="hidden" name="val_2" />
+                <input id="val_3" type="hidden" name="val_3" />
+                <input id="val_4" type="hidden" name="val_4" />
+                <input id="val_5" type="hidden" name="val_5" />
+                <input id="val_6" type="hidden" name="val_6" />
+                <input id="val_7" type="hidden" name="val_7" />
+                <input id="val_8" type="hidden" name="val_8" />
+                <input id="t_pago" type="hidden" name="t_pago" />
+                <input id="t_servicio" type="hidden" name="t_servicio" />
+                <input id="val_11" type="hidden" name="val_11" />
+                <input id="val_12" type="hidden" name="val_12" />
+                <input id="val_13" type="hidden" name="val_13" />
+                <input id="val_14" type="hidden" name="val_14" />
+                <button type="submit" class="btn btn-success btnpagarcancelar mt-2">Pagar
+                </button>
+                <button type="button" class="btn btn-success btnpagarcancelar mt-2" data-toggle="modal"
+                    data-target="#cancelarModal">Cancelar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!--asi se llama al modal desde js $("#myModal").modal()-->
+    <div class="modal fade" id="cancelarModal" tabindex="-1" role="dialog" aria-labelledby="cancelarModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title titulomodal" id="cancelarModalLabel">
+                        <div>Mensaje de confirmaci&oacute;n</div>
+                        <hr class="hrmodal">
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body text-center contenidomodal">
+                    Est&aacute; a punto de cancelar el proceso de pago de adeudos, al cancelar ser&aacute;
+                    redireccionado al inicio del proceso
+                    ¿Desea continuar?
+                </div>
+                <div class="modal-footer centrar">
+                    <div class="v-center">
+                        <button type="button" id="btncancelarpago" class="btn btn-success" data-dismiss="modal"
+                            ng-click="vm.nuevaCuenta()">Aceptar</button>
+                        <button type="button" class="btn btn-success ml-3" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#btncancelarpago").click(function () {
+            if ($("#tres").hasClass("numberCircleActive")) {
+                //desactivar tres
+                $("#tres").removeClass("numberCircleActive");
+                $("#tres").toggleClass("numberCircleInactive");
+                $("#trestext").removeClass("textCircleActive");
+                $("#trestext").toggleClass("textCircleInactive");
+                //activar uno
+                $("#uno").removeClass("numberCircleInactive");
+                $("#uno").toggleClass("numberCircleActive");
+                $("#unotext").removeClass("textCircleInactive");
+                $("#unotext").toggleClass("textCircleActive");
+            }
+        });
+    });
+
+</script>

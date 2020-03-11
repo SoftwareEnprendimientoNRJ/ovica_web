@@ -1,0 +1,662 @@
+<div class="container-fluid tituloseccion">
+    <h1 class="margenderecha">
+        TR&Aacute;MITES
+    </h1>
+</div>
+
+<div class="container-fluid divservicio">
+    <div class="row">
+        <!-- IZQUIERDA -->
+        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-2 col-xl-2 caja cajamenu">
+            <div>
+                <img class="imgmenu" id="imgpropietario" ng-click="vm.mostrarContenido('0');"
+                    src="./img/tramites/NOMBREDELPROPIETARIOON.png">
+                <img class="imgmenu" id="imgasignacion" ng-click="vm.mostrarContenido('1');"
+                    src="./img/tramites/ASIGNACIONDECUENTAOFF.png">
+                <img class="imgmenu" id="imgempoderamiento" ng-click="vm.mostrarContenido('2');"
+                    src="./img/tramites/EMPADROMANIMTODECONDOSOFF.png">
+                <img class="imgmenu" id="imglevantamiento" ng-click="vm.mostrarContenido('3');"
+                    src="./img/tramites/LEVANTAMIENTOFISICOOFF.png">
+                <img class="imgmenu" id="imgrevision" ng-click="vm.mostrarContenido('4');"
+                    src="./img/tramites/REVISIONDEDATOSCATASTRALESOFF.png">
+                <img class="imgmenu" id="imgcertificado" ng-click="vm.mostrarContenido('5');"
+                    src="./img/tramites/CERTIFICADODECLAVEYVALOROFF.png">
+                <img class="imgmenu" id="imgrelotificacion" ng-click="vm.mostrarContenido('6');"
+                    src="./img/tramites/RELOTIFICACIONDECUENTAOFF.png">
+                <img class="imgmenu" id="imgdatos" ng-click="vm.mostrarContenido('7');"
+                    src="./img/tramites/DATOSCATASTRALESCONAVALUOOFF.png">
+                <img class="imgmenu" id="imgalta" ng-click="vm.mostrarContenido('8');"
+                    src="./img/tramites/ALTABAJADEDOMICILIOOFF.png">
+                <img class="imgmenu" id="imgubicacion" ng-click="vm.mostrarContenido('9');"
+                    src="./img/tramites/UBICACIONDEPREDIOOFF.png">
+                <img class="imgmenu" id="imgfusion" ng-click="vm.mostrarContenido('10');"
+                    src="./img/tramites/FUSIONDECUENTAOFF.png">
+                <img class="imgmenu" id="imgratificacion" ng-click="vm.mostrarContenido('11');"
+                    src="./img/tramites/RATIFICACIONDECUENTAOFF.png">
+                <img class="imgmenu" id="imgmodificacion" ng-click="vm.mostrarContenido('12');"
+                    src="./img/tramites/MODIFICACIONDECONDOMINIOOFF.png">
+            </div>
+        </div>
+        <!-- DERECHA -->
+        <div id="contenidotramite" class="col-xs-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 caja cajatexto">
+            <div ng-show="vm.propietario">
+                <div ng-include="'tramitepropietario.html'"></div>
+            </div>
+            <div ng-show="vm.asignacion">
+                <div ng-include="'tramiteasignacion.html'"></div>
+            </div>
+            <div ng-show="vm.empadronamiento">
+                <div ng-include="'tramiteempadronamiento.html'"></div>
+            </div>
+            <div ng-show="vm.levantamiento">
+                <div ng-include="'tramitelevantamiento.html'"></div>
+            </div>
+            <div ng-show="vm.revision">
+                <div ng-include="'tramiterevision.html'"></div>
+            </div>
+            <div ng-show="vm.certificado">
+                <div ng-include="'tramitecertificado.html'"></div>
+            </div>
+            <div ng-show="vm.relotificacion">
+                <div ng-include="'tramiterelotificacion.html'"></div>
+            </div>
+            <div ng-show="vm.datos">
+                <div ng-include="'tramitedatos.html'"></div>
+            </div>
+            <div ng-show="vm.alta">
+                <div ng-include="'tramitealta.html'"></div>
+            </div>
+            <div ng-show="vm.ubicacion">
+                <div ng-include="'tramiteubicacion.html'"></div>
+            </div>
+            <div ng-show="vm.fusion">
+                <div ng-include="'tramitefusion.html'"></div>
+            </div>
+            <div ng-show="vm.ratificacion">
+                <div ng-include="'tramiteratificacion.html'"></div>
+            </div>
+            <div ng-show="vm.modificacion">
+                <div ng-include="'tramitemodificacion.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.sr = new ScrollReveal();
+
+    sr.reveal('.tituloseccion', {
+        duration: 3000,
+        origin: 'left',
+        distance: '600px',
+    });
+    
+    $(document).ready(function () {
+        $("#imgpropietario").removeClass("clicked");
+        $("#imgpropietario").toggleClass("clicked");
+    });
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/NOMBREDELPROPIETARIOON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/NOMBREDELPROPIETARIOON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(0)
+        }
+    }, '#imgpropietario');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/ASIGNACIONDECUENTAON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/ASIGNACIONDECUENTAON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(1)
+        }
+    }, '#imgasignacion');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/EMPADROMANIMTODECONDOSON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/EMPADROMANIMTODECONDOSON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(2)
+        }
+    }, '#imgempoderamiento');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/LEVANTAMIENTOFISICOON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/LEVANTAMIENTOFISICOON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(3)
+        }
+    }, '#imglevantamiento');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(4)
+        }
+    }, '#imgrevision');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/CERTIFICADODECLAVEYVALORON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/CERTIFICADODECLAVEYVALORON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(5)
+        }
+    }, '#imgcertificado');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/RELOTIFICACIONDECUENTAON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/RELOTIFICACIONDECUENTAON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(6)
+        }
+    }, '#imgrelotificacion');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(7)
+        }
+    }, '#imgdatos');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/ALTABAJADEDOMICILIOON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/ALTABAJADEDOMICILIOON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(8)
+        }
+    }, '#imgalta');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/UBICACIONDEPREDIOON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/UBICACIONDEPREDIOON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(9)
+        }
+    }, '#imgubicacion');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/FUSIONDECUENTAON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/FUSIONDECUENTAON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(10)
+        }
+    }, '#imgfusion');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/RATIFICACIONDECUENTAON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/RATIFICACIONDECUENTAON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(11)
+        }
+    }, '#imgratificacion');
+
+    $(document).on({
+        mouseenter: function () {
+            $(this).attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOON.png');
+        },
+        mouseleave: function () {
+            if (!$(this).hasClass("clicked")) {
+                $(this).attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+            }
+        },
+        click: function () {
+            $(this).attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOON.png');
+            $(this).removeClass("clicked");
+            $(this).toggleClass("clicked");
+            botonNoClick(12)
+        }
+    }, '#imgmodificacion');
+
+    function botonNoClick(boton) {
+        switch (boton) {
+            case 0:
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 1:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 2:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 3:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 4:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 5:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 6:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 7:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 8:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 9:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 10:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 11:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");                
+                $("#imgmodificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgmodificacion").attr('src', 'img/tramites/MODIFICACIONDECONDOMINIOOFF.png');
+                break;
+            case 12:
+                $("#imgpropietario").removeClass("clicked");
+                $("#imgasignacion").removeClass("clicked");
+                $("#imgempoderamiento").removeClass("clicked");
+                $("#imglevantamiento").removeClass("clicked");
+                $("#imgrevision").removeClass("clicked");
+                $("#imgcertificado").removeClass("clicked");
+                $("#imgrelotificacion").removeClass("clicked");
+                $("#imgdatos").removeClass("clicked");
+                $("#imgalta").removeClass("clicked");
+                $("#imgubicacion").removeClass("clicked");
+                $("#imgfusion").removeClass("clicked");
+                $("#imgratificacion").removeClass("clicked");
+                $("#imgpropietario").attr('src', 'img/tramites/NOMBREDELPROPIETARIOOFF.png');
+                $("#imgasignacion").attr('src', 'img/tramites/ASIGNACIONDECUENTAOFF.png');
+                $("#imgempoderamiento").attr('src', 'img/tramites/EMPADROMANIMTODECONDOSOFF.png');
+                $("#imglevantamiento").attr('src', 'img/tramites/LEVANTAMIENTOFISICOOFF.png');
+                $("#imgrevision").attr('src', 'img/tramites/REVISIONDEDATOSCATASTRALESOFF.png');
+                $("#imgcertificado").attr('src', 'img/tramites/CERTIFICADODECLAVEYVALOROFF.png');
+                $("#imgrelotificacion").attr('src', 'img/tramites/RELOTIFICACIONDECUENTAOFF.png');
+                $("#imgdatos").attr('src', 'img/tramites/DATOSCATASTRALESCONAVALUOOFF.png');
+                $("#imgalta").attr('src', 'img/tramites/ALTABAJADEDOMICILIOOFF.png');
+                $("#imgubicacion").attr('src', 'img/tramites/UBICACIONDEPREDIOOFF.png');
+                $("#imgfusion").attr('src', 'img/tramites/FUSIONDECUENTAOFF.png');
+                $("#imgratificacion").attr('src', 'img/tramites/RATIFICACIONDECUENTAOFF.png');
+                break;
+        }
+    }
+</script>

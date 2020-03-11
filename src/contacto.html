@@ -1,0 +1,63 @@
+<div class="container-fluid tituloseccion">
+    <h1 class="margenderecha">
+        CONTACTO
+    </h1>
+</div>
+
+<section class="mt-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div align="center">
+                    <img src="img/contacto.png" width="20%" height="15%">
+                    <h4 class="subtituloseccion">Contacto</h4>
+                </div>
+            </div>
+            <!-- DERECHA -->
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div>
+                    <p class="textoseccion">
+                        En esta secci&oacute;n podr&aacute; enviarnos dudas sobre los servicios y/o tr&aacute;mites a realizar.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <form class="card caja">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" name="nombrecontacto" id="nombrecontacto" class="form-control" placeholder="Nombre" ng-model="vm.nombrecontacto" ng-blur="vm.validarFormularioContactoOnblur(1)">
+                                        <div class="alert alert-danger alert-dismissible fade show mt-1 p-1" role="alert" ng-show="vm.nombrecontactovalido">
+                                            La direcci&oacute;n de correo no cumple con la nomenclatura valida usuario@dominio.com, favor de verificar e intentar nuevamente.
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="correocontacto" name="correocontacto" class="form-control" placeholder="Correo electr&oacute;nico" ng-model="vm.correocontacto" ng-blur="vm.validarFormularioContactoOnblur(2)">
+                                        <div class="alert alert-danger alert-dismissible fade show mt-1 p-1" role="alert" ng-show="vm.correocontactovalido">
+                                            La direcci&oacute;n de correo no cumple con la nomenclatura valida usuario@dominio.com, favor de verificar e intentar nuevamente.
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="mensajecontacto" id="mensajecontacto" cols="30" rows="7" class="form-control" ng-blur="vm.validarFormularioContactoOnblur(3)" placeholder="Mensaje" ng-model="vm.mensajecontacto"></textarea>
+                                        <div class="alert alert-danger alert-dismissible fade show mt-1 p-1" role="alert" ng-show="vm.mensajecontactovalido">
+                                            Campo requerido
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-success btn-block btn-lg" ng-click="vm.enviarCorreoContacto()">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    window.sr = new ScrollReveal();
+
+    sr.reveal('.tituloseccion', {
+        duration: 3000,
+        origin: 'left',
+        distance: '600px',
+    });
+</script>

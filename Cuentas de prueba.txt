@@ -1,0 +1,4 @@
+154772720095 vigente adulto
+054231380004 vencido
+123456789012 vigente anticipado vencido
+321654987012 no adeudo

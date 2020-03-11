@@ -1,0 +1,282 @@
+<div ng-show="vm.dos">
+    <div class="container-fluid h-100 mt-3">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-6">
+                <div class="mensajeformulario">
+                    Indique la forma de pago que desea realizar e ingrese la informaci&oacute;n solicitada.
+                </div>
+                <form class="mensajeformulario labelformulario">
+                    <div class="form-group">
+                        <div>Formato de pago:</div>
+                        <input type="radio" name="formadepago" value="linea" ng-click="vm.mostrarFormularioPagoEnLinea()">
+                        <label for="linea"> Pago en l&iacute;nea</label><br>
+                        <input type="radio" name="formadepago" id="radioformatomultiple" value="formato" ng-click="vm.mostrarFormatoDePago()">
+                        <label for="formato">Obtener Formato M&uacute;ltiple de Pago a la Tesorer&iacute;a</label><br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="vm.formulariopagoenlinea">
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col col-sm-8 col-md-8 col-lg-6 col-xl-6">
+                    <form class="mensajeformulario labelformulario">
+                        <div class="form-group">
+                            <div>Modalidad de pago:</div>
+                            <input type="radio" name="modalidaddepago" id="tarjetacredito" value="tarjeta" ng-click="vm.selectRadioModalidad()" ng-checked="true">
+                            <label for="tarjetacredito">Tarjeta de cr&eacute;dito</label><br>
+                            <input type="radio" name="modalidaddepago" id="cuentacheques" value="cuentacheques" ng-click="vm.selectRadioModalidad()">
+                            <label for="cuentacheques">Cuenta de cheques Bancomer</label><br>
+                            <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert" ng-show="vm.modalidadpagovalido">
+                                Campo requerido
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container h-100">
+            <div class="mensajeformulario letranegra">
+                Datos personales:
+            </div>
+            <form class="mensajeformulario" novalidate>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="nombrerazon">Nombre o Raz&oacute;n Social</label>
+                        <input type="text" class="form-control mayusculas" id="nombrerazon" maxlength="250" name="nombrerazon" ng-model="vm.nombrerazon" ng-keyup="vm.validarFormularioPagoEnLinea(0)">
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.ceroformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- Nombre o Raz&oacute;n Social: Campo requerido
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="paterno">Apellido paterno</label>
+                        <input type="text" class="form-control mayusculas" id="paterno" name="paterno" maxlength="100" ng-model="vm.paterno" ng-keyup="vm.validarFormularioPagoEnLinea(1)">
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.unoformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- Apellido paterno: Letras y espacios, sin caracteres especiales
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="materno">Apellido materno</label>
+                        <input type="text" class="form-control mayusculas" id="materno" name="materno" maxlength="100" ng-model="vm.materno" ng-keyup="vm.validarFormularioPagoEnLinea(2)">
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.dosformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- Apellido materno: Letras y espacios, sin caracteres especiales
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="callenumero">Calle y n&uacute;mero</label>
+                        <input type="text" class="form-control mayusculas" id="callenumero" name="callenumero" maxlength="250" ng-model="vm.callenumero" ng-keyup="vm.validarFormularioPagoEnLinea(3)">
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.tresformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- Calle y n&uacute;mero: Campo requerido
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="alcaldia">Alcald&iacute;a</label>
+                        <select class="form-control" ng-model="vm.selectAlcaldia" ng-options="y.alcaldia for (x, y) in vm.alcaldias" id="alcaldia" name="alcaldia" ng-change="vm.selectCodigoPostalXAlcaldia()" ng-blur="vm.validarFormularioPagoEnLinea(4)">
+                            <option value="" disabled selected>Seleccione Alcald&iacute;a</option>
+                        </select>
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.cuatroformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- Alcald&iacute;a: Campo requerido
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="codigopostal">C&oacute;digo Postal</label>
+                        <select class="form-control" ng-model="vm.selectCodigoPostal" ng-options="x for x in vm.codigos" id="codigopostal" name="codigopostal" ng-change="vm.selectColoniaXCodigoPostal()" ng-blur="vm.validarFormularioPagoEnLinea(5)">
+                            <option value="" disabled selected>Seleccione C&oacute;digo Postal</option>
+                        </select>
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.cincoformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- C&oacute;digo Postal: Campo requerido
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="colonia">Colonia</label>
+                        <select class="form-control" ng-model="vm.selectColonia" ng-options="x for x in vm.colonias" id="colonia" name="colonia" ng-blur="vm.validarFormularioPagoEnLinea(6)">
+                            <option value="" disabled selected>Seleccione Colonia</option>
+                        </select>
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.seisformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- Colonia: Campo requerido
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="numtelefono">Tel&eacute;fono</label>
+                        <input type="text" class="form-control" id="telefono" ng-model="vm.telefono" ng-keyup="vm.validarFormularioPagoEnLinea(7)" maxlength="10" minlength="10">
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.sieteformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- Tel&eacute;fono: Diez caract&eacute;res num&eacute;ricos
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <label for="correo">Correo electr&oacute;nico</label>
+                        <input type="email" class="form-control" id="correo" ng-model="vm.correo" ng-keyup="vm.validarFormularioPagoEnLinea(8)">
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.ochoformulario">
+                            <small>
+                                <div>
+                                    El dato ingresado no es v&aacute;lido, favor de verificar.
+                                </div>
+                                <div class="ml-4">
+                                    <br>- Correo electr&oacute;nico: Ejemplo: micorreo@dominio.com
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="clasepunteromano mt-3" style="color: #085394;">
+                    <u data-toggle="modal" data-target="#modalAvisoPrivacidad">Aviso de Privacidad para la
+                        Protecci&oacute;n de Datos Personales</u></div>
+                <div class="form-group">
+                    <input type="checkbox" id="checkaviso" ng-model="vm.checkavisodeprivacidad" ng-change="vm.validarFormularioPagoEnLinea(9)">
+                    <label for="checkaviso">He le&iacute;do y acepto el  aviso de Privacidad para la Protecci&oacute;n de Datos Personales.</label>
+                    <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.nueveformulario">
+                        <small>
+                            <div>
+                                El dato ingresado no es v&aacute;lido, favor de verificar.
+                            </div>
+                            <div class="ml-4">
+                                <br>- Aviso de Privacidad: Debe aceptar el aviso de privacidad
+                            </div>
+                        </small>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--formulario pago en linea-->
+
+    <div class="container d-flex justify-content-between mt-3" ng-show="vm.btnregresarsiguientepie">
+        <div class="mensajeformulario">
+            <button id="regresardospie" class="btn btn-default btn-volvercontinuar clasepunteromano" ng-click="vm.regresarTab(); vm.moverScroll()">
+                <i class="fas fa-arrow-left ml-0 pl-0 mr-1"></i>Regresar</button>
+        </div>
+        <div>
+            <button id="siguientedospie" class="btn btn-volvercontinuar clasepunteromano float-right" ng-click="vm.siguienteTab(); vm.moverScroll()" ng-disabled="vm.siguientedosdesactivado">
+                Siguiente<i class="fas fa-arrow-right ml-1"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAvisoPrivacidad" tabindex="-1" role="dialog" aria-labelledby="modalAvisoPrivacidadLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title titulomodal" id="modalAvisoPrivacidadLabel">
+                        <div>Aviso de Privacidad para la Protecci&oacute;n de Datos Personales</div>
+                        <hr class="hrmodal" style="width: 50%;">
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <img src="img/avisodeprivacidad.jpeg" class="zoom">
+                </div>
+                <div class="modal-footer centrar">
+                    <div class="v-center">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end modal-->
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.zoom').hover(function() {
+            $(this).addClass('transition');
+        }, function() {
+            $(this).removeClass('transition');
+        });
+    });
+
+    $("#siguientedospie").click(function() {
+        if ($("#dos").hasClass("numberCircleActive")) {
+            //desactivar dos
+            $("#dos").removeClass("numberCircleActive");
+            $("#dos").toggleClass("numberCircleInactive");
+            $("#dostext").removeClass("textCircleActive");
+            $("#dostext").toggleClass("textCircleInactive");
+            //activar tres
+            $("#tres").removeClass("numberCircleInactive");
+            $("#tres").toggleClass("numberCircleActive");
+            $("#trestext").removeClass("textCircleInactive");
+            $("#trestext").toggleClass("textCircleActive");
+        }
+    });
+
+    $("#regresardospie").click(function() {
+        if ($("#dos").hasClass("numberCircleActive")) {
+            //desactivar dos
+            $("#dos").removeClass("numberCircleActive");
+            $("#dos").toggleClass("numberCircleInactive");
+            $("#dostext").removeClass("textCircleActive");
+            $("#dostext").toggleClass("textCircleInactive");
+            //activar uno
+            $("#uno").removeClass("numberCircleInactive");
+            $("#uno").toggleClass("numberCircleActive");
+            $("#unotext").removeClass("textCircleInactive");
+            $("#unotext").toggleClass("textCircleActive");
+        }
+    });
+</script>

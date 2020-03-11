@@ -1,0 +1,102 @@
+<div class="container-fluid">
+    <p class="subtituloseccion sinmargen">Impuesto predial</p>
+    <hr class="sinmargen hrsubtitulo">
+</div>
+
+<div class="container-fluid">
+    <div class="text-center mt-3" style="margin-bottom: 0; padding-bottom: 0;">
+        <div class="d-inline">
+            <button id="regresar" class="btn btn-default btn-volvercontinuar clasepunteromano" ng-click="vm.regresarTab()" ng-disabled="vm.regresardesactivado">
+                <i class="fas fa-arrow-left ml-0 pl-0 mr-1"></i>Regresar</button>
+        </div>
+        <div class="d-inline-block">
+            <span id="uno" class="numberCircleActive">1</span>
+            <div id="unotext" class="textCircleActive">Consulta Adeudos</div>
+        </div>
+        <div class="d-inline-block">
+            <span id="dos" class="numberCircleInactive">2</span>
+            <div id="dostext" class="textCircleInactive">Pago</div>
+        </div>
+        <div class="d-inline-block">
+            <span id="tres" class="numberCircleInactive">3</span>
+            <div id="trestext" class="textCircleInactive">Confirmaci&oacute;n</div>
+        </div>
+        <button id="siguiente" class="btn btn-volvercontinuar clasepunteromano" ng-click="vm.siguienteTab()" ng-disabled="vm.siguientedesactivado">
+            Siguiente<i class="fas fa-arrow-right ml-1"></i>
+        </button>
+    </div>
+    <hr class="hrcontenido">
+</div>
+
+<div ng-include="'servicioimpuestopredial1.html'"></div>
+
+<div ng-include="'servicioimpuestopredial2.html'"></div>
+
+<div ng-include="'servicioimpuestopredial3.html'"></div>
+
+
+<script src="https://www.google.com/recaptcha/api.js?hl=es&onload=onloadCallback&render=explicit" async defer>
+</script>
+<script type="text/javascript">
+    var onloadCallback = function() {
+        grecaptcha.render('gwd-reCAPTCHA_2', {
+            'sitekey': '6LeXzcQUAAAAAP8X2obHI4Zu5Hi7SSvzLCo4iwL5'
+        });
+    };
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#siguiente").click(function() {
+            if ($("#uno").hasClass("numberCircleActive")) {
+                //desactivar anterior
+                $("#uno").removeClass("numberCircleActive");
+                $("#uno").toggleClass("numberCircleInactive");
+                $("#unotext").removeClass("textCircleActive");
+                $("#unotext").toggleClass("textCircleInactive");
+                //activar siguiente
+                $("#dos").removeClass("numberCircleInactive");
+                $("#dos").toggleClass("numberCircleActive");
+                $("#dostext").removeClass("textCircleInactive");
+                $("#dostext").toggleClass("textCircleActive");
+            } else if ($("#dos").hasClass("numberCircleActive")) {
+                //desactivar dos
+                $("#dos").removeClass("numberCircleActive");
+                $("#dos").toggleClass("numberCircleInactive");
+                $("#dostext").removeClass("textCircleActive");
+                $("#dostext").toggleClass("textCircleInactive");
+                //activar tres
+                $("#tres").removeClass("numberCircleInactive");
+                $("#tres").toggleClass("numberCircleActive");
+                $("#trestext").removeClass("textCircleInactive");
+                $("#trestext").toggleClass("textCircleActive");
+            }
+        });
+
+        $("#regresar").click(function() {
+            if ($("#dos").hasClass("numberCircleActive")) {
+                //desactivar dos
+                $("#dos").removeClass("numberCircleActive");
+                $("#dos").toggleClass("numberCircleInactive");
+                $("#dostext").removeClass("textCircleActive");
+                $("#dostext").toggleClass("textCircleInactive");
+                //activar uno
+                $("#uno").removeClass("numberCircleInactive");
+                $("#uno").toggleClass("numberCircleActive");
+                $("#unotext").removeClass("textCircleInactive");
+                $("#unotext").toggleClass("textCircleActive");
+            } else if ($("#tres").hasClass("numberCircleActive")) {
+                //desactivar tres
+                $("#tres").removeClass("numberCircleActive");
+                $("#tres").toggleClass("numberCircleInactive");
+                $("#trestext").removeClass("textCircleActive");
+                $("#trestext").toggleClass("textCircleInactive");
+                //activar dos
+                $("#dos").removeClass("numberCircleInactive");
+                $("#dos").toggleClass("numberCircleActive");
+                $("#dostext").removeClass("textCircleInactive");
+                $("#dostext").toggleClass("textCircleActive");
+            }
+        });
+    });
+</script>

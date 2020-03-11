@@ -1,0 +1,460 @@
+<div ng-show="vm.uno">
+    <div class="container-fluid mt-3" ng-show="vm.formulariocuenta">
+        <div class="row justify-content-center align-items-center">
+            <div class="col col-sm-8 col-md-8 col-lg-5 col-xl-5">
+                <div class="mensajeformulario">
+                    Ingrese los 12 caracteres de la cuenta predial que requiere consultar sin espacios ni guiones.
+                </div>
+                <form name="formcuenta" novalidate>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="search" ng-model="vm.clavepredial" name="clavepredial" placeholder="Clave catastral" class="form-control text-center mb-2" minlength="12" maxlength="12" ng-blur="vm.cuentaPredialValida()">
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show p-1" role="alert" ng-show="vm.cuentavalida">
+                            <div>La cuenta predial ingresada es inv&aacute;lida, la cuenta debe contar con la siguiente nomenclatura:
+                                <div class="ml-4">
+                                    - 12 caract&eacute;res
+                                    <br> - Alfanum&eacute;rica
+                                    <br>- Sin espacios
+                                    <br>- Sin guiones
+                                </div>
+                            </div>
+                            <div>Favor de verificar e intentar de nuevo.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-4" id="gwd-reCAPTCHA_2"></div>
+                        <div class="alert alert-danger alert-dismissible fade show mt-2 p-1" role="alert" ng-show="vm.errorrecaptcha">
+                            Seleccione captcha
+                        </div>
+                    </div>
+                    <div class="form-group mt-5">
+                        <button type="submit" class="btn btn-success btn-block" ng-click="vm.getAdeudo(formcuenta.$valid)">Buscar cuenta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center" ng-show="vm.noencontrada">
+        <div class="alert alert-warning" role="alert">
+            La cuenta ingresada no existe, favor de verificar e intentar de nuevo.
+        </div>
+        <div>
+            <button type="button" class="btn btn-success" ng-click="vm.nuevaCuenta()">Nueva consulta
+            </button>
+        </div>
+    </div>
+
+    <div class="container text-center" ng-show="vm.noadeudo">
+        <div class="alert alert-info" role="alert">
+            No se encontraron adeudos pendientes de pago asociados a la cuenta de predial {{vm.cuentanolocalizada}}.
+        </div>
+        <div>
+            <button type="button" class="btn btn-success" ng-click="vm.nuevaCuenta()">Nueva consulta
+            </button>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-between mt-3" ng-show="vm.siadeudo">
+        <div class="mensajeformulario">
+            <span>Se han encontrado los siguientes periodos asociados a la cuenta predial: </span><span class="font-weight-bold cuenta">{{vm.cuentalocalizada}}.</span>
+        </div>
+        <div>
+            <button type="button" class="btn btn-success" ng-click="vm.nuevaCuenta()">Nueva consulta
+            </button>
+        </div>
+    </div>
+
+    <div class="container" ng-show="vm.tablaAdeudoVigente">
+        <fieldset>
+            <legend class="legenttabla">Adeudos vigentes</legend>
+            <div class="table-responsive">
+                <table class="table table-hover table-sm">
+                    <thead class="encabezadotabla">
+                        <tr>
+                            <th scope="col">
+                                <div style="padding-left: 25px;">Bimestre
+                                </div>
+                            </th>
+                            <th scope="col">L&iacute;nea de captura</th>
+                            <th scope="col">Fecha vencimiento</th>
+                            <th scope="col">Valor impuesto</th>
+                            <th scope="col">Reducci&oacute;n</th>
+                            <th scope="col">Total</i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <th>
+                                <label class="containercheck">{{vm.bimestrevigente}}
+                                    <input type="checkbox" name="checkvigente" id="idvigente"
+                                        ng-model="vm.vigenteactivo" ng-click="vm.adeudoVigente()">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </th>
+                            <td>{{vm.lineacapturavigente}}</td>
+                            <td>{{vm.vencimientovigente}}</td>
+                            <td>${{vm.impuestovigente | number : 2}}</td>
+                            <td>${{vm.reduccionvigente | number : 2}}</td>
+                            <td>${{vm.totalvigente | number : 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="container" ng-show="vm.tablaAdeudoAnticipado">
+        <fieldset>
+            <legend class="legenttabla">Adeudos vigentes anticipados</legend>
+            <div class="table-responsive">
+                <table class="table table-hover table-sm">
+                    <thead class="encabezadotabla">
+                        <tr>
+                            <th scope="col">
+                                <div style="padding-left: 25px;">Bimestre
+                                </div>
+                            </th>
+                            <th scope="col">L&iacute;nea de captura</th>
+                            <th scope="col">Fecha vencimiento</th>
+                            <th scope="col">Valor impuesto</th>
+                            <th scope="col">Reducci&oacute;n</th>
+                            <th scope="col">Total</i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <th>
+                                <label class="containercheck">{{vm.bimestreanticipado}}
+                                    <input type="checkbox" name="checkanticipado" id="idanticipado"
+                                        ng-model="vm.anticipadoactivo" ng-click="vm.adeudoAnticipado()">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </th>
+                            <td>{{vm.lineacapturaanticipado}}</td>
+                            <td>{{vm.vencimientoanticipado}}</td>
+                            <td>${{vm.impuestoanticipado | number : 2}}</td>
+                            <td>${{vm.reduccionanticipado | number : 2}}</td>
+                            <td>${{vm.totalanticipado | number : 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="container" ng-show="vm.tablaAdeudoVencido">
+        <fieldset>
+            <legend class="legenttabla">Adeudos vencidos</legend>
+            <div class="table-responsive">
+                <table class="table table-hover table-sm">
+                    <thead class="encabezadotabla">
+                        <tr>
+                            <th scope="col">
+                                <label class="containercheck">Bimestre
+                                    <input type="checkbox" name="checkvencido" class="clasevencido"
+                                        ng-model="vm.todoslosvencidos" ng-click="vm.todosVencidos()">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </th>
+                            <th><label class="containercheckall">Requerido</label></th>
+                            <th scope="col"><label class="containercheckall">Impuesto emitido</label></th>
+                            <th scope="col"><label class="containercheckall">Impuesto pagado</label></th>
+                            <th scope="col"><label class="containercheckall">Reducci&oacute;n</label></th>
+                            <th scope="col"><label class="containercheckall">Total</label></i>
+                                <th scope="col"><label class="containercheckall">Detalle</label></i>
+                                </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr ng-repeat-start="adeudovencido in vm.adeudosvencidos">
+                            <th>
+                                <label class="containercheck">{{adeudovencido.bimestre}}
+                                    <input type="checkbox" name="checkanticipado" id={{adeudovencido.idadeudo}}
+                                        class="clasevencido" ng-checked="vm.todoslosvencidos"
+                                        ng-click="vm.adeudoVencido(adeudovencido.idadeudo)">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </th>
+                            <td>{{adeudovencido.requerido}}</td>
+                            <td>${{adeudovencido.impuestoemitido | number : 2}}</td>
+                            <td>${{adeudovencido.impuestopagado | number : 2}}</td>
+                            <td>${{adeudovencido.reduccion | number : 2}}</td>
+                            <td>${{adeudovencido.total | number : 2}}</td>
+                            <td>
+                                <div class="mitooltip">
+                                    <i class="fa fa-info-circle clasepunteromano btn-detalle" ng-click="expanded = !expanded" expand>
+                                    </i>
+                                    <span class="tooltiptext">Detalle</span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr ng-repeat-end ng-show="expanded" class="text-center">
+                            <td colspan="8" style="padding: 0">
+                                <div class="d-flex justify-content-center" collapse="vm.isCollapsed">
+                                    <div class="Table">
+                                        <div class="Title">Detalle del per&iacute;odo</div>
+                                        <div class="Row">
+                                            <span class="CellOne">Impuesto emitido:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.impuestoemitido | number : 2}}</span>
+                                        </div>
+                                        <div class="Row">
+                                            <span class="CellOne">(-) Impuesto pagado:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.impuestopagado | number : 2}}</span>
+                                        </div>
+                                        <div class="Row">
+                                            <span class="CellOne">Actualizaci&oacute;n:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.actualizacion | number : 2}}</span>
+                                        </div>
+                                        <div class="Row">
+                                            <span class="CellOne">Diferencia:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.diferencia | number : 2}}</span>
+                                        </div>
+                                        <div class="Row">
+                                            <span class="CellOne">Recargo:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.recargo | number : 2}}</span>
+                                        </div>
+                                        <div class="Row">
+                                            <span class="CellOne">(-) Condonaci&oacute;n de regargo:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.condonacionderecargo | number : 2}}</span>
+                                        </div>
+                                        <div class="Row">
+                                            <span class="CellOne">Multa:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.multa | number : 2}}</span>
+                                        </div>
+                                        <div class="Row">
+                                            <span class="CellOne">(-) Condonaci&oacute;n de multa:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.condonaciondemulta | number : 2}}</span>
+                                        </div>
+                                        <div class="Row">
+                                            <span class="CellOne">Subtotal per&iacute;odo:</span>
+                                            <span class="CellTwo">${{adeudovencido.detalle.subtotalperiodo | number : 2}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="container" ng-show="vm.btncalculartotales">
+        <button class="btn btn-success float-right mb-3" ng-click="vm.calcularTotales()">Calcular totales</button>
+    </div>
+
+    <div class="container" ng-show="vm.tablaTotales">
+        <div class="table-responsive mt-5">
+            <table class="table table-sm">
+                <thead class="encabezadototales">
+                    <tr>
+                        <th colspan="5">Tabla de totales a pagar</th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="columnatotales">
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">Per&iacute;odos seleccionados:</td>
+                        <td>{{vm.totalperiodos}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">Impuesto emitido:</td>
+                        <td>${{vm.totalemitido | number : 2}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">(-) Impuesto pagado:</td>
+                        <td>${{vm.totalpagado | number : 2}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">Actualizaci&oacute;n:</td>
+                        <td>${{vm.totalactualizacion | number : 2}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">Gastos de ejecuci&oacute;n:</td>
+                        <td>${{vm.totalgastos | number : 2}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">(-) Gastos de ejecuci&oacute;n condonados:</td>
+                        <td>${{vm.totalgastoscondonados | number : 2}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">Recargo:</td>
+                        <td>${{vm.totalrecargo | number : 2}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">Condonaci&oacute;n de recargo:</td>
+                        <td>${{vm.totalrecargocondonado | number : 2}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">Multa:</td>
+                        <td>${{vm.totalmulta | number : 2}}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <td class="bordederecha">(-) Multa condonada:</td>
+                        <td>${{vm.totalmultacondonada | number : 2}}</td>
+                    </tr>
+                    <tr class="filatotal">
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                        <th class="textoderecha">Total a pagar:</th>
+                        <th>${{vm.totalpagar | number : 2}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--tabla totales-->
+    <div class="container" ng-show="vm.siguientepie">
+        <button id="siguienteunopie" class="btn btn-volvercontinuar clasepunteromano float-right" ng-click="vm.siguienteTab(); vm.moverScroll()">
+            Siguiente<i class="fas fa-arrow-right ml-1"></i>
+        </button>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title titulomodal" id="exampleModalLabel">
+                        <div>Importante</div>
+                        <hr class="hrmodal">
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body text-center contenidomodal">
+                    Para continuar se deben seleccionar los periodos requeridos.
+                </div>
+                <div class="modal-footer centrar">
+                    <div class="v-center">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end modal-->
+</div>
+
+<script>
+    $("#siguienteunopie").click(function() {
+        if ($("#uno").hasClass("numberCircleActive")) {
+            //desactivar anterior
+            $("#uno").removeClass("numberCircleActive");
+            $("#uno").toggleClass("numberCircleInactive");
+            $("#unotext").removeClass("textCircleActive");
+            $("#unotext").toggleClass("textCircleInactive");
+            //activar siguiente
+            $("#dos").removeClass("numberCircleInactive");
+            $("#dos").toggleClass("numberCircleActive");
+            $("#dostext").removeClass("textCircleInactive");
+            $("#dostext").toggleClass("textCircleActive");
+        }
+    });
+</script>

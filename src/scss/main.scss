@@ -1,0 +1,1175 @@
+@font-face {
+    font-family: GothamBold;
+    src: url(../fonts/GothamCondensed-Bold.otf);
+}
+
+@font-face {
+    font-family: GothamBook;
+    src: url(../fonts/GothamCondensed-Book.otf);
+}
+
+@font-face {
+    font-family: GothamMedium;
+    src: url(../fonts/GothamCondensed-Medium.otf);
+}
+
+@font-face {
+    font-family: GothamLight;
+    src: url(../fonts/GothamCondensed-Light.otf);
+}
+
+body {
+    background: #f4f5f5;
+}
+
+.logo img {
+    display: none;
+}
+
+.logo .width1 {
+    display: block;
+}
+
+.logo .width2 {
+    display: inline;
+}
+
+.fondo {
+    background-color: #f4f5f5;
+}
+
+.clasepunteromano {
+    cursor: pointer;
+    cursor: hand;
+}
+
+::placeholder {
+    font-family: GothamBook;
+    font-size: 14pt;
+}
+
+table {
+    font-family: GothamBook;
+    letter-spacing: 0.7pt;
+}
+
+
+/*
+CARRUCEL
+*/
+
+.slider {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider ul {
+    position: relative;
+    margin: auto;
+    height: auto;
+    padding: 0;
+    width: 400%;
+}
+
+.slider ul li {
+    float: left;
+    width: 25%;
+    list-style: none;
+}
+
+.slider ul li img {
+    width: 100%;
+}
+
+.indicators {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    text-align: center;
+    top: -30px;
+}
+
+.indicators li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    color: white;
+    text-shadow: 0 0 5px #333333;
+}
+
+.indicators li:first-child {
+    opacity: 1;
+}
+
+.arrowleft {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.arrowright {
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+
+/*
+FIN DE CARRUCEL
+*/
+
+.navbar {
+    background-color: #439289;
+    padding: 0;
+}
+
+.navbar-toggler {
+    padding: 0%;
+    margin: 0%;
+    display: inline;
+}
+
+.btnverde {
+    background-color: #439289;
+    border: none;
+    color: #f4f5f5;
+    font-family: GothamBook;
+    letter-spacing: 1pt;
+    height: 2.8em;
+    margin: 0;
+    padding-top: 13px;
+    font-size: 1.1em;
+    border-radius: 0;
+    width: 70pt;
+}
+
+.fecha {
+    color: #f4f5f5;
+    font-family: GothamMedium;
+    font-size: 1.2em;
+    margin-right: 0.7em;
+    letter-spacing: 1pt;
+}
+
+.btnverde:hover,
+.btnverde:active,
+.btnverde:visited,
+.btnverde:focus,
+.btnverde:active:focus {
+    background-color: #10625b;
+    color: #ffffff;
+}
+
+
+/*
+FOOTER
+*/
+
+footer {
+    text-align: center;
+}
+
+.sinmargen {
+    margin: 0 0 0 0;
+    padding: 0 0 0.5em 0;
+}
+
+.letragris {
+    color: #8a8c8c;
+    font-family: GothamMedium;
+    font-size: 14pt;
+}
+
+.claselink:link {
+    color: black;
+}
+
+
+/* visited link */
+
+.claselink:visited {
+    color: black;
+}
+
+
+/* mouse over link */
+
+.claselink:hover {
+    color: gray;
+    border-bottom: #ffffff;
+}
+
+
+/* selected link */
+
+.claselink:active {
+    color: black;
+}
+
+.titulopie {
+    font-family: GothamBold;
+    font-size: 18pt;
+    letter-spacing: 0.7pt;
+}
+
+.textopie {
+    font-family: GothamLight;
+    font-size: 16pt;
+    letter-spacing: 0.7pt;
+}
+
+.direccion {
+    text-align: left;
+    margin-left: 1.5em;
+}
+
+.navegacion {
+    text-align: left;
+    margin-left: 8em;
+}
+
+.sitiorelacionado {
+    text-align: left;
+    margin-left: 9em;
+}
+
+.redessociales {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.redessociales li {
+    float: left;
+}
+
+.redessociales li a {
+    display: block;
+    padding: 8px;
+}
+
+.botonredes {
+    font-size: 24pt;
+    color: #8a8c8c;
+}
+
+.botonredes:hover,
+.botonredes:focus {
+    color: #f4f5f5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*
+HOME
+*/
+
+.textotitulo {
+    color: #8a8c8c;
+    font-family: GothamBold;
+    font-size: 30pt;
+    letter-spacing: 1pt;
+    text-align: center;
+}
+
+.textocontenido {
+    color: #8a8c8c;
+    font-family: GothamMedium;
+    font-size: 16pt;
+    text-align: center;
+}
+
+.division {
+    text-align: center;
+    background-color: #439289;
+    color: #ffffff;
+    letter-spacing: 2pt;
+    font-family: GothamBold;
+    font-size: 18pt;
+}
+
+.imgseccionhome {
+    width: 95%;
+}
+
+
+/*
+SERVICIOS
+*/
+
+.divservicio {
+    margin-top: 3em;
+}
+
+.caja {
+    background-color: #f4f5f5;
+    border: solid 1px;
+    border-color: #b4b4b4;
+    -webkit-box-shadow: 1px 10px 23px 0px rgba(180, 180, 180, 1);
+    -moz-box-shadow: 1px 10px 23px 0px rgba(180, 180, 180, 1);
+    box-shadow: 1px 10px 23px 0px rgba(180, 180, 180, 1);
+}
+
+.cajatexto {
+    padding: 15px;
+}
+
+.cajamenu {
+    padding: 15px;
+    margin: 0 2.1em 0 2.4em;
+}
+
+.imgmenu {
+    cursor: pointer;
+    cursor: hand;
+    width: 95%;
+    height: 16%;
+    padding: 0;
+    margin: 0;
+}
+
+.tituloseccion {
+    font-family: GothamBold;
+    color: #f4f5f5;
+    letter-spacing: 1pt;
+    text-align: right;
+    background-color: #898d8d;
+    border: 1px solid #898d8d;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(137, 141, 141, 1);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(137, 141, 141, 1);
+    box-shadow: 0px 2px 5px 0px rgba(137, 141, 141, 1);
+}
+
+.margenderecha {
+    margin-right: 0.7em;
+}
+
+.subtituloseccion {
+    font-family: GothamBold;
+    color: #8a8c8c;
+    font-size: 18pt;
+    letter-spacing: 1pt;
+    margin: 0;
+    padding: 0;
+}
+
+.textoseccion {
+    color: #8a8c8c;
+    font-size: 16pt;
+    text-align: justify;
+    font-family: GothamMedium;
+}
+
+.textoinicio {
+    color: #8a8c8c;
+    font-family: GothamMedium;
+    font-size: 18pt;
+    text-align: right;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.hrsubtitulo {
+    border: 1px solid #439289;
+    padding: 0 0 0 0;
+    margin: 0 0 10px 0;
+}
+
+.hrcontenido {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+.numberCircleInactive {
+    background: #cccccc;
+    border-radius: 1.8em;
+    -moz-border-radius: 1.8em;
+    -webkit-border-radius: 1.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 2.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 2.6em;
+    font-size: 13pt;
+}
+
+.numberCircleActive {
+    background: #439289;
+    border: 2px solid #39b54a;
+    border-radius: 1.8em;
+    -moz-border-radius: 1.8em;
+    -webkit-border-radius: 1.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 2.3em;
+    margin-right: 5px;
+    text-align: center;
+    width: 2.6em;
+    font-size: 13pt;
+}
+
+.textCircleActive {
+    display: block;
+    font-family: GothamMedium;
+    font-size: 14pt;
+    color: #439289;
+    padding-top: 0;
+    letter-spacing: 0.5pt;
+}
+
+.textCircleInactive {
+    display: block;
+    font-family: GothamMedium;
+    font-size: 14pt;
+    color: #b4b4b4;
+    padding-top: 0;
+    letter-spacing: 0.5pt;
+}
+
+.btn-volvercontinuar {
+    width: 58pt;
+    padding: 0;
+    font-family: GothamMedium;
+    font-size: 14pt;
+    color: #b4b4b4;
+    padding-bottom: 3em;
+    outline: none !important;
+    border: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.btn-volvercontinuar:hover:disabled {
+    color: #b4b4b4;
+}
+
+.btn-volvercontinuar:hover:not([disabled]) {
+    color: #439289;
+}
+
+.btn-success {
+    background-color: #b4b4b4;
+    border-color: #b4b4b4;
+    font-family: GothamMedium;
+    font-size: 14pt;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    letter-spacing: 1pt;
+}
+
+.btn-success-sm {
+    font-size: 11pt;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.btn-success:disabled {
+    background-color: #b4b4b4;
+    border-color: #b4b4b4;
+    cursor: not-allowed;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success:visited,
+.btn-success:focus {
+    background-color: #439289 !important;
+    border-color: #39b54a;
+}
+
+.btn-detalle {
+    color: #b4b4b4;
+}
+
+.btn-detalle:hover {
+    color: #439289;
+}
+
+#gwd-reCAPTCHA_2 {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.mensajeformulario {
+    font-family: GothamMedium;
+    color: #8a8c8c;
+    letter-spacing: 0.5pt;
+    font-size: 13pt;
+    margin-bottom: 0.5em;
+}
+
+.cuenta {
+    letter-spacing: 0.9pt;
+}
+
+.labelformulario {
+    color: #8a8c8c;
+    font-family: GothamMedium;
+    letter-spacing: 0.2pt;
+}
+
+input[type="radio"]:checked+label {
+    color: #000000;
+}
+
+input[type="radio"]:checked {
+    box-shadow: 0 0 2pt 1.45pt #439289;
+}
+
+.legenttabla {
+    font-family: GothamBold;
+    color: #000000;
+}
+
+.encabezadotabla {
+    font-family: GothamBook;
+    background-color: #439289;
+    color: #f4f5f5;
+}
+
+.Table {
+    display: table;
+}
+
+.Title {
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    font-family: GothamMedium;
+    letter-spacing: 0.9pt;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+}
+
+.Row {
+    display: table-row;
+}
+
+.CellOne {
+    display: table-cell;
+    text-align: right;
+    border: none;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: GothamBook;
+}
+
+.CellTwo {
+    display: table-cell;
+    text-align: left;
+    border: none;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: GothamBold;
+}
+
+.containercheck {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.containercheckall {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.encabezadototales {
+    font-family: GothamBook;
+    background-color: #439289;
+    color: #f4f5f5;
+    font-size: 16pt;
+}
+
+.columnatotales {
+    text-align: right;
+    font-family: GothamMedium;
+}
+
+.filatotal {
+    background-color: #898d8d;
+    letter-spacing: 1.2pt;
+    font-family: GothamMedium;
+    color: #f4f5f5;
+    text-align: right;
+    font-size: 14pt;
+}
+
+.bordederecha {
+    border-right: solid 2px #439289;
+}
+
+.centrar {
+    display: flex;
+    justify-content: center;
+}
+
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+.letranegra {
+    color: black;
+}
+
+.titulomodal {
+    font-family: GothamBold;
+    color: black;
+    letter-spacing: 0.5pt;
+    font-size: 15pt;
+}
+
+.contenidomodal {
+    font-family: GothamMedium;
+    color: #8a8c8c;
+    letter-spacing: 0.5pt;
+    font-size: 13pt;
+}
+
+.hrmodal {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background: #439289;
+    height: 2pt;
+}
+
+.zoom {
+    width: 100%;
+    transition: transform 2s;
+}
+
+.zoom:hover {
+    transform: scale(1.4);
+}
+
+
+/* Hide the browser's default checkbox */
+
+.containercheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    right: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #f4f5f5;
+    border: 2px solid #8a8c8c;
+    border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.containercheck:hover input~.checkmark {
+    border: 2px solid #39b54a;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.containercheck input:checked~.checkmark {
+    background-color: #439289;
+    border: 2px solid #39b54a;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.containercheck input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.containercheck .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.containercheck input:disabled~.checkmark {
+    background-color: #ccc;
+    border: 2px solid #8a8c8c;
+}
+
+.myfieldset {
+    border-radius: 4px;
+    border: 1px solid #8a8c8c;
+    padding-bottom: 0.8em;
+}
+
+.mylegend {
+    width: auto;
+}
+
+.tituloaviso {
+    font-family: GothamBold;
+    font-size: 16pt;
+    letter-spacing: 0.7pt;
+    color: #000000;
+}
+
+.textoaviso {
+    font-family: GothamMedium;
+    font-size: 12pt;
+    letter-spacing: 0.7pt;
+}
+
+.btnpagarcancelar {
+    width: 120pt;
+}
+
+.btnenviarcancelar {
+    width: 70pt;
+}
+
+.mayusculas {
+    text-transform: uppercase;
+}
+
+
+/* Tooltip container */
+
+.mitooltip {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
+}
+
+
+/* Tooltip text */
+
+.mitooltip .tooltiptext {
+    visibility: hidden;
+    /*width: 120px;  */
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.mitooltip .tooltipprincipal {
+    width: auto;
+    padding: 5px;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.mitooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+/*
+RESPONSIVE LOGOTIPO
+*/
+
+@media (min-width: 990px) {
+    //400
+    .logo .width1 {
+        display: block;
+        width: 100%;
+    }
+    .logo .width2 {
+        display: none;
+    }
+    .formnav1 {
+        display: block;
+    }
+    .formnav2 {
+        display: none;
+    }
+}
+
+@media (max-width: 989px) {
+    //399
+    .logo .width1 {
+        display: none;
+    }
+    .logo .width2 {
+        display: block;
+        width: 100%;
+    }
+    .formnav1 {
+        display: none;
+    }
+    .formnav2 {
+        display: block;
+    }
+}
+
+.clase {
+    margin-left: 7em;
+    margin-right: 12.1em;
+}
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.divvertical {
+    height: auto;
+    width: 12pt;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    background-color: #8a8c8c;
+    color: #000000;
+    font-size: 9pt;
+}
+
+.divvertical i {
+    margin-top: 220pt;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 120pt;
+    max-width: 150pt;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar ul li a {
+    text-align: left;
+}
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+#sidebar.active ul ul a {
+    padding: 10px !important;
+}
+
+#sidebar.active .dropdown-toggle::after {
+    top: auto;
+    bottom: 10px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.subtitulosidebar {
+    color: #439289;
+    font-family: GothamMedium;
+    font-size: 12pt;
+}
+
+.labelformmap {
+    font-family: GothamMedium;
+    color: #8a8c8c;
+    letter-spacing: 0.5pt;
+    font-size: 11pt;
+}
+
+.letranueve {
+    font-size: 9pt;
+}
+
+.formmap {
+    position: relative;
+    background-color: #f4f5f5;
+    margin: 0 0 0 12pt;
+    padding: 0 0 0 0;
+}
+
+#map {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    height: auto;
+}
+
+.letraselect {
+    font-size: 9pt;
+    font-family: GothamLight;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 989px) {
+    .clase {
+        margin: 1em 0 0 2em;
+    }
+    .divservicio {
+        width: 95%;
+        margin-top: 1em;
+    }
+    .fecha {
+        margin-left: 4px;
+        margin-right: 0;
+        font-size: 0.9em;
+    }
+    .barralogos {
+        height: 3rem;
+    }
+    .flechas {
+        width: 50%;
+    }
+    .imgseccionhome {
+        width: 70%;
+        margin: 0 0 2em 4em;
+    }
+    .subtitulohome {
+        margin: 0 0 0 0;
+    }
+    .textoinicio {
+        margin: 0 0 0 0;
+        font-size: 24pt;
+    }
+    .hrinicio {
+        margin: 0 0 0 0;
+    }
+    .navegacion {
+        margin-left: 2em;
+    }
+    .margenderecha {
+        margin-right: 0em;
+    }
+    .imgmenu {
+        width: 65%;
+        height: 17%;
+    }
+    .cajamenu {
+        margin: 0 1em 1em 1em;
+    }
+    #gwd-reCAPTCHA_2 {
+        -webkit-transform: scale(0.92);
+        -moz-transform: scale(0.92);
+        -ms-transform: scale(0.92);
+        -o-transform: scale(0.92);
+        transform: scale(0.92);
+        -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+    .arrowleft {
+        position: absolute;
+        top: 5%;
+        left: 6%;
+        width: 15%;
+    }
+    .arrowright {
+        position: absolute;
+        top: 5%;
+        right: 1%;
+        width: 15%;
+    }
+    .indicators {
+        top: -20px;
+        padding-right: 50px;
+    }
+    .indicators li {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 100px) and (max-width: 989px) and (orientation: portrait) {
+    .numberCircleInactive {
+        background: #cccccc;
+        border-radius: 1.8em;
+        -moz-border-radius: 1.8em;
+        -webkit-border-radius: 1.8em;
+        color: #ffffff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 2em;
+        margin-right: 2px;
+        text-align: center;
+        width: 2.1em;
+        font-size: 12pt;
+    }
+    .numberCircleActive {
+        background: #439289;
+        border: 2px solid #39b54a;
+        border-radius: 1.8em;
+        -moz-border-radius: 1.8em;
+        -webkit-border-radius: 1.8em;
+        color: #ffffff;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 2em;
+        margin-right: 2px;
+        text-align: center;
+        width: 2.1em;
+        font-size: 12pt;
+    }
+    .textCircleActive {
+        display: none;
+    }
+    .textCircleInactive {
+        display: none;
+    }
+    .btn-volvercontinuar {
+        padding-bottom: 0;
+        outline: none;
+    }
+    .hrcontenido {
+        padding: 1em 0 0 0;
+        margin: 1em 0 0 0;
+    }
+    .btnpagarcancelar {
+        margin-left: 3em;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 640px) and (orientation: landscape) {
+    .imgmenu {
+        width: 45%;
+        height: 17%;
+    }
+    .cajamenu {
+        margin: 0 1em 1em 1.8em;
+    }
+    #gwd-reCAPTCHA_2 {
+        -webkit-transform: scale(1.16);
+        -moz-transform: scale(1.16);
+        -ms-transform: scale(1.16);
+        -o-transform: scale(1.16);
+        transform: scale(1.16);
+        -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+        margin-bottom: 2.3em;
+    }
+}
+
+
+/*
+END RESPONSIVE ELEMENTS
+*/
+
+
+/*
+ *  PORTAL: USADOS EN LOS SERVICIOS Y TRAMITES
+ */
+
+.portal-texto {
+    font-family: GothamBook;
+    color: #8a8c8c;
+    letter-spacing: 0.6pt;
+    margin: 0px 0px 20px 0px;
+    text-align: justify;
+}
+
+.portal-titulo {
+    font-family: GothamMedium;
+    color: #009288;
+    font-size: 16pt;
+    letter-spacing: 0.6pt;
+}
+
+.portal-pdfobject {
+    height: 30rem;
+    border: 1rem solid rgba(0, 0, 0, 0.1);
+}
